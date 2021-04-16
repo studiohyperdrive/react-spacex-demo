@@ -1,23 +1,15 @@
 import React from 'react';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 
-import { EntryView, HomeView, StarlinkDetailView, StarlinkOverview } from '../views';
+import { HOME_ROUTE_PATHS, HOME_ROUTES } from '../modules/home/home.routes';
+import { STARLINK_ROUTE_PATHS, STARLINK_ROUTES } from '../modules/starlink/starlink.routes';
 
 export const ROUTE_PATHS = {
-	entry: '/',
-	home: '/home',
-	starlink: {
-		overview: '/starlink',
-		detail: '/starlink/:starlinkId',
-	},
+	...HOME_ROUTE_PATHS,
+	starlink: STARLINK_ROUTE_PATHS,
 };
 
-export const ROUTES = [
-	{ path: ROUTE_PATHS.entry, component: EntryView, exact: true }, // We need to set exact to true, otherwise all routes will only match the first
-	{ path: ROUTE_PATHS.home, component: HomeView },
-	{ path: ROUTE_PATHS.starlink.overview, component: StarlinkOverview, exact: true },
-	{ path: ROUTE_PATHS.starlink.detail, component: StarlinkDetailView },
-];
+export const ROUTES = [...HOME_ROUTES, ...STARLINK_ROUTES];
 
 export const AppRouter: React.FC = ({ children }) => {
 	return (

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { Button, Logo } from '../../components';
-import { ROUTE_PATHS } from '../../router';
+import { ROUTE_PATHS } from '../../../../router';
+import { Button, Logo } from '../../../shared/components';
 
 const EntryView: React.FC = () => {
 	return (

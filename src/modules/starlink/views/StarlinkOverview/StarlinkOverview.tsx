@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { generatePath, Link } from 'react-router-dom';
 
-import { ROUTE_PATHS } from '../../router';
-import { spaceXService } from '../../services/spaceX';
+import { spaceXService } from '../../../shared/services/spaceX';
+import { STARLINK_ROUTE_PATHS } from '../../starlink.routes';
 
 const StarlinkOverview: React.FC = () => {
 	const [loading, setLoading] = useState(false);
@@ -34,7 +34,7 @@ const StarlinkOverview: React.FC = () => {
 			) : !loading && starlinks.length ? (
 				<ul>
 					{starlinks.map((starlink) => {
-						const itemTo = generatePath(ROUTE_PATHS.starlink.detail, {
+						const itemTo = generatePath(STARLINK_ROUTE_PATHS.detail, {
 							starlinkId: starlink.id,
 						});
 

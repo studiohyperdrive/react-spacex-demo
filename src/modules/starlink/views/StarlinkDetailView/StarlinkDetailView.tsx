@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 
-import { spaceXService } from '../../services/spaceX';
-import { StarlinkGetResponse } from '../../services/spaceX/spaceX.service.types';
+import { spaceXService, StarlinkGetResponse } from '../../../shared/services/spaceX';
 
 const StarlinkDetailView: React.FC = () => {
 	const [loading, setLoading] = useState(false);
