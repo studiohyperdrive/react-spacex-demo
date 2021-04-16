@@ -1,15 +1,17 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import { Logo } from '../Logo';
 
 import { NavigationProps } from './Navigation.types';
 
-const Navigation: React.FC<NavigationProps> = ({ items = [] }) => {
+const Navigation: React.FC<NavigationProps> = ({ logoUrl = '', items = [] }) => {
 	return (
 		<nav>
 			<div className="c-navigation__logo">
-				<Logo />
+				<Link to={logoUrl}>
+					<Logo />
+				</Link>
 			</div>
 			<div className="c-navigation__items">
 				{items.map(({ label, ...linkProps }, index) => (
