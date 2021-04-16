@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 
-import { EntryView, HomeView, StarlinkDetailView, StarlinkOverview } from '../views';
+import { EntryView, HomeView, PlayView, StarlinkDetailView, StarlinkOverview } from '../views';
 
 export const ROUTE_PATHS = {
 	entry: '/',
@@ -10,6 +10,7 @@ export const ROUTE_PATHS = {
 		overview: '/starlink',
 		detail: '/starlink/:starlinkId',
 	},
+	play: '/play',
 };
 
 export const ROUTES = [
@@ -17,6 +18,7 @@ export const ROUTES = [
 	{ path: ROUTE_PATHS.home, component: HomeView },
 	{ path: ROUTE_PATHS.starlink.overview, component: StarlinkOverview, exact: true },
 	{ path: ROUTE_PATHS.starlink.detail, component: StarlinkDetailView },
+	{ path: ROUTE_PATHS.play, component: PlayView },
 ];
 
 export const AppRouter: React.FC = ({ children }) => {
