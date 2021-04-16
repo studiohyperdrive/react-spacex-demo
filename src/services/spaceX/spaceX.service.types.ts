@@ -14,3 +14,11 @@ export interface StarlinkQueryResponse {
 }
 
 export type StarlinkGetResponse = StarlinkModel;
+
+export interface ShipModel {
+	name: string;
+	launches: string[];
+	image: string;
+}
+
+export type ShipGetResponse = ShipModel[];

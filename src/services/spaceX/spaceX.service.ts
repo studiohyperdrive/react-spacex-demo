@@ -1,6 +1,10 @@
 import ky from 'ky';
 
-import { StarlinkGetResponse, StarlinkQueryResponse } from './spaceX.service.types';
+import {
+	ShipGetResponse,
+	StarlinkGetResponse,
+	StarlinkQueryResponse,
+} from './spaceX.service.types';
 
 class SpaceXService {
 	private baseUrl = 'https://api.spacexdata.com/v4';
@@ -17,6 +21,10 @@ class SpaceXService {
 
 	public async getStarlink(id: string): Promise<StarlinkGetResponse | undefined> {
 		return this.httpClient.get(`starlink/${id}`).json();
+	}
+
+	public async getAllShips(): Promise<ShipGetResponse> {
+		return this.httpClient.get('ships').json();
 	}
 }
 
