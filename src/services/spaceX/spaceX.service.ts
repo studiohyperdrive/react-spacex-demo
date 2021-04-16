@@ -15,7 +15,7 @@ class SpaceXService {
 		return this.httpClient.post('starlink/query').json();
 	}
 
-	public async getStarlink(id: string): Promise<StarlinkGetResponse> {
+	public async getStarlink(id: string): Promise<StarlinkGetResponse | undefined> {
 		return this.httpClient.get(`starlink/${id}`).json();
 	}
 }
