@@ -1,16 +1,18 @@
 import React from 'react';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 
-import { EntryView, HomeView } from '../views';
+import { EntryView, HomeView, PlayView } from '../views';
 
 export const ROUTE_PATHS = {
 	entry: '/',
 	home: '/home',
+	play: '/play',
 };
 
 export const ROUTES = [
 	{ path: ROUTE_PATHS.entry, component: EntryView, exact: true }, // We need to set exact to true, otherwise all routes will only match the first
 	{ path: ROUTE_PATHS.home, component: HomeView },
+	{ path: ROUTE_PATHS.play, component: PlayView },
 ];
 
 export const AppRouter: React.FC = () => {
