@@ -30,7 +30,7 @@ const StarlinkOverview: React.FC = () => {
 		<div className="v-starlink-overview">
 			<h1>Starlink overview</h1>
 			{loading ? (
-				<p>Loading starlink...</p>
+				<p>Loading starlinks...</p>
 			) : !loading && starlinks.length ? (
 				<ul>
 					{starlinks.map((starlink) => {
