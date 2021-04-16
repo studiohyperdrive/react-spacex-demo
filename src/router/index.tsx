@@ -13,9 +13,10 @@ export const ROUTES = [
 	{ path: ROUTE_PATHS.home, component: HomeView },
 ];
 
-export const AppRouter: React.FC = () => {
+export const AppRouter: React.FC = ({ children }) => {
 	return (
 		<Router>
+			{children}
 			<Switch>
 				{ROUTES.map((route) => (
 					<Route key={route.path} {...route} />
