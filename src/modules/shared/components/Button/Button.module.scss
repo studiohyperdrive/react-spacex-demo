@@ -1,0 +1,48 @@
+@import '../../../../styles/settings';
+
+@keyframes ripple-out {
+	0% {
+		border-color: $teal;
+	}
+	100% {
+		top: -12px;
+		right: -12px;
+		bottom: -12px;
+		left: -12px;
+		opacity: 0;
+	}
+}
+
+.c-button {
+	position: relative;
+	display: inline-block;
+	padding: 1rem 2rem;
+	font-family: $font-family-ui;
+	text-transform: uppercase;
+	background: transparent;
+	box-shadow: 0 0 1px rgba($teal, 0);
+	color: $white;
+	transform: perspective(1px) translateZ(0);
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		border: $white solid 1px;
+		animation-duration: 1s;
+		animation-delay: 200ms;
+		animation-timing-function: ease-in-out;
+		animation-iteration-count: infinite;
+	}
+
+	&:active,
+	&:focus,
+	&:hover {
+		&::before {
+			animation-name: ripple-out;
+		}
+	}
+}

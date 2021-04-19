@@ -3,6 +3,14 @@ p {
 	margin: 0;
 }
 
+button {
+	border: none;
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
 *,
 *::before,
 *::after {
