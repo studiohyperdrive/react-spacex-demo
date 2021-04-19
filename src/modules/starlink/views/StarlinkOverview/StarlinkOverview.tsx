@@ -27,7 +27,7 @@ const StarlinkOverview: React.FC = () => {
 	}, []);
 
 	return (
-		<div className="v-starlink-overview">
+		<div className="v-starlink-overview u-container">
 			<h1>Starlink overview</h1>
 			{loading ? (
 				<p>Loading starlinks...</p>

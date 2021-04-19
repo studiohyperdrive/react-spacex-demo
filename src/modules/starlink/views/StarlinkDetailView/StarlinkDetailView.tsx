@@ -25,7 +25,7 @@ const StarlinkDetailView: React.FC = () => {
 	}, [starlinkId]);
 
 	return (
-		<div className="v-starlink-detail">
+		<div className="v-starlink-detail u-container">
 			{loading ? (
 				<p>Loading starlink...</p>
 			) : !loading && starlink ? (
