@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 
 import { spaceXService, StarlinkGetResponse } from '../../../shared/services/spaceX';
@@ -38,11 +38,11 @@ const StarlinkDetailView: React.FC = () => {
 					<h1>{starlink.spaceTrack.OBJECT_NAME}</h1>
 					<div className={cx('v-starlink-detail__data')}>
 						<dl>
-							{Object.keys(starlink.spaceTrack).map((key) => (
-								<>
+							{Object.keys(starlink.spaceTrack).map((key, index) => (
+								<Fragment key={`starlink-data-${index}`}>
 									<dt>{key}</dt>
 									<dd>{String(starlink.spaceTrack[key])}</dd>
-								</>
+								</Fragment>
 							))}
 						</dl>
 					</div>
