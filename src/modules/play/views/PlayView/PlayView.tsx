@@ -74,7 +74,7 @@ const PlayView: React.FC = () => {
 		if (
 			shipX &&
 			shipY &&
-			(shipX?.launches > shipY?.launches || shipX?.launches === shipY?.launches)
+			(shipY?.launches > shipX?.launches || shipX?.launches === shipY?.launches)
 		) {
 			rightAnswer();
 			return;
@@ -87,7 +87,7 @@ const PlayView: React.FC = () => {
 		if (
 			shipX &&
 			shipY &&
-			(shipY?.launches > shipX?.launches || shipX?.launches === shipY?.launches)
+			(shipX?.launches > shipY?.launches || shipX?.launches === shipY?.launches)
 		) {
 			rightAnswer();
 			return;
