@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { matchPath, BrowserRouter as Router, useLocation } from 'react-router-dom';
 
 import { NAVIGATION_ITEMS } from './App.const';
-import { Navigation } from './modules/shared/components';
+import { Navigation, StarBackground } from './modules/shared/components';
 import { AppRouterSwitch, ROUTE_PATHS } from './router';
 
 import './styles/main.scss';
@@ -22,6 +22,7 @@ const App: React.FC = () => {
 		<div className="c-app">
 			{showNavigation && <Navigation logoUrl={ROUTE_PATHS.home} items={NAVIGATION_ITEMS} />}
 			<AppRouterSwitch />
+			<StarBackground />
 		</div>
 	);
 };

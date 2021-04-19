@@ -1,0 +1,71 @@
+// Starry background: https://codepen.io/saransh/pen/BKJun
+
+// n is number of stars required
+@function multiple-box-shadow($n) {
+	$value: '#{random(2000)}px #{random(2000)}px #FFF';
+	@for $i from 2 through $n {
+		$value: '#{$value} , #{random(2000)}px #{random(2000)}px #FFF';
+	}
+	@return unquote($value);
+}
+
+$shadows-small: multiple-box-shadow(700);
+$shadows-medium: multiple-box-shadow(200);
+$shadows-big: multiple-box-shadow(100);
+
+@keyframes animate-star {
+	from {
+		transform: translateY(0);
+	}
+	to {
+		transform: translateY(-2000px);
+	}
+}
+
+.c-stars {
+	background: transparent;
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 2000px;
+		background: transparent;
+	}
+
+	&--bg-1 {
+		width: 1px;
+		height: 1px;
+		box-shadow: $shadows-small;
+		animation: animate-star 75s linear infinite;
+
+		&::after {
+			width: 1px;
+			height: 1px;
+			box-shadow: $shadows-small;
+		}
+	}
+	&--bg-2 {
+		width: 2px;
+		height: 2px;
+		box-shadow: $shadows-medium;
+		animation: animate-star 100s linear infinite;
+
+		&::after {
+			width: 2px;
+			height: 2px;
+			box-shadow: $shadows-medium;
+		}
+	}
+	&--bg-3 {
+		width: 3px;
+		height: 3px;
+		box-shadow: $shadows-big;
+		animation: animate-star 150s linear infinite;
+
+		&::after {
+			width: 3px;
+			height: 3px;
+			box-shadow: $shadows-big;
+		}
+	}
+}
