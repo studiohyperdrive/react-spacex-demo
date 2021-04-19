@@ -3,6 +3,7 @@ export interface StarlinkModel {
 	id: string;
 	spaceTrack: {
 		OBJECT_NAME: string;
+		[key: string]: any;
 	};
 }
 

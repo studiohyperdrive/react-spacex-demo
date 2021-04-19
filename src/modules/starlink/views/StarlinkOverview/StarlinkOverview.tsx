@@ -1,8 +1,13 @@
+import classNames from 'classnames/bind';
 import React, { useEffect, useState } from 'react';
 import { generatePath, Link } from 'react-router-dom';
 
 import { spaceXService } from '../../../shared/services/spaceX';
 import { STARLINK_ROUTE_PATHS } from '../../starlink.routes';
+
+import styles from './StarlinkOverview.module.scss';
+
+const cx = classNames.bind(styles);
 
 const StarlinkOverview: React.FC = () => {
 	const [loading, setLoading] = useState(false);
@@ -27,12 +32,12 @@ const StarlinkOverview: React.FC = () => {
 	}, []);
 
 	return (
-		<div className="v-starlink-overview u-container">
+		<div className={cx('v-starlink-overview', 'u-container')}>
 			<h1>Starlink overview</h1>
 			{loading ? (
 				<p>Loading starlinks...</p>
 			) : !loading && starlinks.length ? (
-				<ul>
+				<ul className={cx('v-starlink-overview__list')}>
 					{starlinks.map((starlink) => {
 						const itemTo = generatePath(STARLINK_ROUTE_PATHS.detail, {
 							starlinkId: starlink.id,
@@ -40,7 +45,10 @@ const StarlinkOverview: React.FC = () => {
 
 						return (
 							<li key={starlink.id}>
-								<Link to={itemTo}>{starlink.label}</Link>
+								<Link to={itemTo}>
+									{starlink.label}
+									<span className="material-icons">chevron_right</span>
+								</Link>
 							</li>
 						);
 					})}

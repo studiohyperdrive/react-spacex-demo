@@ -1,0 +1,18 @@
+@import '../../../../styles/settings';
+
+.v-starlink-detail__data {
+	padding: 1rem 2rem;
+	border: 1px solid $teal;
+	background: rgba($white, 0.1);
+
+	dt {
+		clear: left;
+		float: left;
+		width: 220px;
+		text-align: right;
+	}
+	dd {
+		margin-left: 236px;
+		color: $teal;
+	}
+}

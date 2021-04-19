@@ -1,0 +1,33 @@
+@import '../../../../styles/settings';
+
+.v-starlink-overview__list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+
+	li {
+		border: $teal 2px solid;
+
+		&:not(:last-child) {
+			margin-bottom: 1rem;
+		}
+	}
+
+	a {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 1rem;
+		text-decoration: none;
+		color: $teal;
+		transition: background 200ms ease-in-out;
+
+		span {
+			font-size: 2rem;
+		}
+
+		&:hover {
+			background: rgba($white, 0.1);
+		}
+	}
+}

@@ -1,7 +1,12 @@
+import classNames from 'classnames/bind';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 
 import { spaceXService, StarlinkGetResponse } from '../../../shared/services/spaceX';
+
+import styles from './StarlinkDetailView.module.scss';
+
+const cx = classNames.bind(styles);
 
 const StarlinkDetailView: React.FC = () => {
 	const [loading, setLoading] = useState(false);
@@ -25,12 +30,22 @@ const StarlinkDetailView: React.FC = () => {
 	}, [starlinkId]);
 
 	return (
-		<div className="v-starlink-detail u-container">
+		<div className={cx('v-starlink-detail', 'u-container')}>
 			{loading ? (
 				<p>Loading starlink...</p>
-			) : !loading && starlink ? (
+			) : !loading && starlink?.spaceTrack ? (
 				<>
 					<h1>{starlink.spaceTrack.OBJECT_NAME}</h1>
+					<div className={cx('v-starlink-detail__data')}>
+						<dl>
+							{Object.keys(starlink.spaceTrack).map((key) => (
+								<>
+									<dt>{key}</dt>
+									<dd>{String(starlink.spaceTrack[key])}</dd>
+								</>
+							))}
+						</dl>
+					</div>
 				</>
 			) : null}
 		</div>
