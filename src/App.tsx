@@ -20,8 +20,12 @@ const App: React.FC = () => {
 
 	return (
 		<div className="c-app">
-			{showNavigation && <Navigation logoUrl={ROUTE_PATHS.home} items={NAVIGATION_ITEMS} />}
-			<AppRouterSwitch />
+			<div className="u-main">
+				{showNavigation && (
+					<Navigation logoUrl={ROUTE_PATHS.home} items={NAVIGATION_ITEMS} />
+				)}
+				<AppRouterSwitch />
+			</div>
 			<StarBackground />
 		</div>
 	);
