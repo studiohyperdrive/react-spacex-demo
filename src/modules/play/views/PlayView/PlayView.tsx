@@ -1,7 +1,12 @@
+import classNames from 'classnames/bind';
 import React, { useEffect, useState } from 'react';
 
 import { Button } from '../../../shared/components';
 import { IShip, spaceXService } from '../../../shared/services/spaceX';
+
+import styles from './PlayView.module.scss';
+
+const cx = classNames.bind(styles);
 
 const PlayView: React.FC = () => {
 	const [loading, setLoading] = useState(false);
@@ -74,7 +79,7 @@ const PlayView: React.FC = () => {
 		if (
 			shipX &&
 			shipY &&
-			(shipX?.launches > shipY?.launches || shipX?.launches === shipY?.launches)
+			(shipY?.launches > shipX?.launches || shipX?.launches === shipY?.launches)
 		) {
 			rightAnswer();
 			return;
@@ -87,7 +92,7 @@ const PlayView: React.FC = () => {
 		if (
 			shipX &&
 			shipY &&
-			(shipY?.launches > shipX?.launches || shipX?.launches === shipY?.launches)
+			(shipX?.launches > shipY?.launches || shipX?.launches === shipY?.launches)
 		) {
 			rightAnswer();
 			return;
@@ -97,24 +102,44 @@ const PlayView: React.FC = () => {
 	};
 
 	return (
-		<div className="v-starlink-overview">
+		<div className="u-container">
 			<h1>The Higher Lower ship launches game</h1>
 			{loading ? (
 				<p>Loading ships...</p>
 			) : !loading && ships.length ? (
 				<div>
-					<div>{highScore}</div>
-					<div>{score}</div>
-					<div>
-						<h2>{shipX?.name}</h2>
-						<p>has</p>
-						<p>{shipX?.launches}</p>
-						<p>launches</p>
-					</div>
-					<div>
-						<h2>{shipY?.name}</h2>
-						<Button onClick={() => checkHigher()}>Higher</Button>
-						<Button onClick={() => checkLower()}>Lower</Button>
+					<div>Highscore: {highScore}</div>
+					<div className={cx('v-play__score')}>Current score: {score}</div>
+					<div className={cx('v-play__ships')}>
+						<div
+							className={cx('v-play__ship', 'v-play__ship_x')}
+							style={{
+								backgroundImage: `linear-gradient(to bottom, rgba(12, 19, 93, 0.62), rgba(17, 19, 93, 0.83)), url(${shipX?.image})`,
+							}}
+						>
+							<div>
+								<h2>{shipX?.name}</h2>
+								<p>has</p>
+								<p className={cx('v-play__ship_x__amount')}>{shipX?.launches}</p>
+								<p>{shipX?.launches === 1 ? 'launch' : 'launches'}</p>
+							</div>
+						</div>
+						<div
+							className={cx('v-play__ship', 'v-play__ship_y')}
+							style={{
+								backgroundImage: `linear-gradient(to bottom, rgba(12, 19, 93, 0.62), rgba(17, 19, 93, 0.83)), url(${shipY?.image})`,
+							}}
+						>
+							<div>
+								<h2>{shipY?.name}</h2>
+								<p>has a</p>
+								<div className={cx('v-play__ship_y__buttons')}>
+									<Button onClick={() => checkHigher()}>Higher</Button>
+									<Button onClick={() => checkLower()}>Lower</Button>
+								</div>
+								<p>amount of launches</p>
+							</div>
+						</div>
 					</div>
 				</div>
 			) : null}

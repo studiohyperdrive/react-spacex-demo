@@ -1,0 +1,45 @@
+.v-play__score {
+	font-size: 1.6rem;
+	margin: 1rem 0;
+}
+
+.v-play__ships {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.v-play__ship {
+	height: 50%;
+	width: 50%;
+	padding-bottom: 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+
+	> div {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+}
+
+.v-play__ship_x {
+	&__amount {
+		font-size: 3rem;
+	}
+}
+
+.v-play__ship_y {
+	&__buttons {
+		display: flex;
+		justify-content: space-around;
+		flex-direction: row;
+		padding: 1.5rem;
+		width: 75%;
+	}
+}
