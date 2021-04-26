@@ -1,3 +1,5 @@
+@import '../../../../styles/settings';
+
 .v-entry {
 	display: flex;
 	flex-direction: column;
@@ -8,9 +10,20 @@
 .v-entry__logo {
 	max-width: 500px;
 	width: 100%;
-	margin-bottom: 2rem;
 
 	svg {
 		fill: white;
+	}
+}
+
+.v-entry__welcome {
+	margin: 2rem 0;
+
+	p {
+		padding: 0.35rem 0;
+	}
+
+	a {
+		color: $white;
 	}
 }
