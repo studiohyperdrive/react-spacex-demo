@@ -9,21 +9,10 @@
 
 .v-entry__logo {
 	max-width: 500px;
+	margin-bottom: 2rem;
 	width: 100%;
 
 	svg {
 		fill: white;
-	}
-}
-
-.v-entry__welcome {
-	margin: 2rem 0;
-
-	p {
-		padding: 0.35rem 0;
-	}
-
-	a {
-		color: $white;
 	}
 }
