@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { matchPath, BrowserRouter as Router, useLocation } from 'react-router-dom';
+import { matchPath, HashRouter as Router, useLocation } from 'react-router-dom';
 
 import { NAVIGATION_ITEMS } from './App.const';
 import { Navigation, StarBackground } from './modules/shared/components';
